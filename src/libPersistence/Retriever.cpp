@@ -141,6 +141,12 @@ bool Retriever::RetrieveTxBlocks(bool wakeupForUpgrade) {
                       "AccountStore::GetInstance().DeserializeDelta failed");
           return false;
         }
+#if 1  // clark
+        LOG_GENERAL(INFO, "AccountStore::GetInstance().GetStateRootHash() = "
+                              << AccountStore::GetInstance().GetStateRootHash()
+                              << ", block->GetHeader().GetStateRootHash() = "
+                              << block->GetHeader().GetStateRootHash());
+#endif
       }
     }
   }
